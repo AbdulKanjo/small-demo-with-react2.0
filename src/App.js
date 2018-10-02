@@ -12,7 +12,11 @@ class App extends Component {
       first: true,
       sec: true,
       third: true,
-      four: true
+      four: true,
+      five: true,
+      six: true,
+      seven: true,
+      eight: true
     };
   }
 
@@ -27,27 +31,47 @@ class App extends Component {
       .then(
         setTimeout(() => {
           this.setState({ loading: false });
-        }, 3000)
+        }, 2000)
       )
       .then(
         setTimeout(() => {
           this.setState({ first: false });
-        }, 6000)
+        }, 5000)
       )
       .then(
         setTimeout(() => {
           this.setState({ sec: false });
-        }, 9000)
+        }, 8000)
       )
       .then(
         setTimeout(() => {
           this.setState({ third: false });
-        }, 12000)
+        }, 10000)
       )
       .then(
         setTimeout(() => {
           this.setState({ four: false });
-        }, 15000)
+        }, 13000)
+      )
+      .then(
+        setTimeout(() => {
+          this.setState({ five: false });
+        }, 16000)
+      )
+      .then(
+        setTimeout(() => {
+          this.setState({ six: false });
+        }, 18000)
+      )
+      .then(
+        setTimeout(() => {
+          this.setState({ seven: false });
+        }, 20000)
+      )
+      .then(
+        setTimeout(() => {
+          this.setState({ eight: false });
+        }, 20000)
       )
       .catch(err => console.log(err));
   }
@@ -56,7 +80,7 @@ class App extends Component {
     return this.state.loading ? (
       <div className="App">
         <div className="App-header">
-          <div>Please Wait</div>
+          <div>Please wait</div>
         </div>
       </div>
     ) : this.state.first ? (
@@ -81,6 +105,30 @@ class App extends Component {
       <div className="App">
         <div className="App-header">
           <div>Hahahaha this is funny</div>
+        </div>
+      </div>
+    ) : this.state.five ? (
+      <div className="App">
+        <div className="App-header">
+          <div>Why are you still here?</div>
+        </div>
+      </div>
+    ) : this.state.six ? (
+      <div className="App">
+        <div className="App-header">
+          <div>Oh! you need the informaion</div>
+        </div>
+      </div>
+    ) : this.state.seven ? (
+      <div className="App">
+        <div className="App-header">
+          <div>This is conditional rendering and here is the informaion </div>
+        </div>
+      </div>
+    ) : this.state.eight ? (
+      <div className="App">
+        <div className="App-header">
+          <div>but </div>
         </div>
       </div>
     ) : (
