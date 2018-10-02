@@ -1,25 +1,39 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import logo from "./logo.svg";
+import axios from "axios";
+import "./App.css";
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      data: [],
+      loading: true
+    };
+  }
+
+  componentDidMount() {
+    axios
+      .get("https://swapi.co/api/people/1/")
+      .then(res => this.setState({ data: res.data, loading: false }))
+      .catch(err => console.log(err));
+  }
+
   render() {
-    return (
+    console.log(this.state.data);
+
+    return this.state.loading ? (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+        <div className="App-header">
+          <div>Please wait</div>
+        </div>
+      </div>
+    ) : (
+      <div className="App">
+        <div className="App-header">
+          <div>{this.state.data.name}</div>
+          <div>{this.state.data.eye_color}</div>
+        </div>
       </div>
     );
   }
