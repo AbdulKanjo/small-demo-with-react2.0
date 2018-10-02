@@ -20,8 +20,6 @@ class App extends Component {
   }
 
   render() {
-    console.log(this.state.data);
-
     return this.state.loading ? (
       <div className="App">
         <div className="App-header">
